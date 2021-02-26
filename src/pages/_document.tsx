@@ -6,7 +6,7 @@ export default class MyDocument extends Document {
             <Html>
                 <Head>
                     {/* <meta charset="utf-8" /> */}
-                    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+                    <link rel="icon" href="favicon.png" type="image/png" />
                     {/* <meta name="viewport" content="width=device-width, initial-scale=1" /> */}
 
                     <link rel="preconnect" href="https://fonts.gstatic.com" />

@@ -1,5 +1,6 @@
 ## TODO
- - [ ] Fix Level Up bug when exp raises more than 1 level
+ - [x] Fix Level Up bug when exp raises more than 1 level
+ - [ ] Bug when reload after cache clear (ExperienceBar NaN)
  - [ ] Custom challenge time defined by user
  - [ ] Implements PWA (Next.js + PWA)
  - [ ] Dark theme

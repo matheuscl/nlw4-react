@@ -15,7 +15,7 @@ interface ChallengeContextData {
     challengesCompleted: number,
     activeChallenge: IChallenge,
     experienceToNextLevel: number,
-    levelUp: () => void,
+    levelUp: (newlevel: number) => void,
     startNewChallenge: () => void,
     resetChallenge: () => void,
     completeChallenge: () => void,
@@ -53,8 +53,8 @@ export function ChallengesProvider({
         Cookies.set('challengesCompleted', String(challengesCompleted))
     }, [level, currentExperience, challengesCompleted])
 
-    function levelUp() {
-        setLevel(level + 1)
+    function levelUp(newLevel: number) {
+        setLevel(newLevel)
         setIsLevelUpModalOpen(true)
     }
 
@@ -90,9 +90,14 @@ export function ChallengesProvider({
 
         let finalExperience = currentExperience + amount
 
-        if(finalExperience >= experienceToNextLevel) {
+        let newLevel = level
+        while(finalExperience >= experienceToNextLevel) {
             finalExperience = finalExperience - experienceToNextLevel
-            levelUp()
+            newLevel += 1
+        }
+
+        if(newLevel > level) {
+            levelUp(newLevel)
         }
 
         setCurrentExperience(finalExperience)
